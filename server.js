@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/dist'));
 
-const db;
+var db;
 
 mongodb.MongoClient.connect(process.env.MONGODB_URI, function(err, database) {
     if (err) {
