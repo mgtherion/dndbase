@@ -14,6 +14,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RaceDetailsComponent } from './races/race-details/race-details.component';
 import { RaceListComponent } from './races/race-list/race-list.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { RaceListComponent } from './races/race-list/race-list.component';
     MessagesComponent,
     DashboardComponent,
     RaceDetailsComponent,
-    RaceListComponent
+    RaceListComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
