@@ -8,7 +8,7 @@ import { RaceService } from '../race.service';
   styleUrls: ['./race-details.component.css']
 })
 
-export class RaceDetailsComponent implements OnInit {
+export class RaceDetailsComponent {
   @Input()
   race: Race;
 
