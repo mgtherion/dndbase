@@ -12,12 +12,12 @@
         <button class="btn btn-warning" (click)="createNewRace()">New</button>
     </div>
     <div class="col-md-5 col-md-offset-2">
-        <race-detail
+        <race-details
             [race]="selectedRace"
             [createHandler]="addRace"
             [updateHandler]="updateRace"
             [deleteHandler]="deleteRace">
-        </race-detail>
+        </race-details>
     </div>
 
 </div>
