@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- ngModel lives here
+import { HttpModule } from '@angular/http';
 
 
 import { AppComponent } from './app.component';
@@ -28,7 +29,8 @@ import { RaceListComponent } from './races/race-list/race-list.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
   providers: [
     HeroService,
