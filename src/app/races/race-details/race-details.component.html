@@ -16,7 +16,7 @@
         </div>
         <div class="form-group">
             <label for="race-descrtiption">Descrtiption</label>
-            <input class="form-control" name="race-descrtiption" [(ngModel)]="race.descrtiption" placeholder="Descrtiption"/>
+            <input class="form-control" name="race-descrtiption" [(ngModel)]="race.description" placeholder="Descrtiption"/>
         </div>
         <button class="btn btn-primary" *ngIf="!race._id" (click)="createRace(race)">Create</button>
         <button class="btn btn-info" *ngIf="race._id" (click)="updateRace(race)">Update</button>
