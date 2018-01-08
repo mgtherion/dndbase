@@ -16,6 +16,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RaceDetailsComponent } from './races/race-details/race-details.component';
 import { RaceListComponent } from './races/race-list/race-list.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { Globals } from './globals';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { NavigationComponent } from './navigation/navigation.component';
   ],
   providers: [
     HeroService,
-    MessageService
+    MessageService,
+    Globals
   ],
   bootstrap: [AppComponent]
 })

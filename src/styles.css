@@ -22,5 +22,5 @@ body, input[text], button {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* froala sort of license >:->*/
-.fr-box .fr-wrapper div:not(.fr-element) { display: none; }
+/* froala sort of license */
+.fr-box > .fr-wrapper > div:not(.fr-element) { display: none; }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Globals } from '../globals';
 
 @Component({
   selector: 'navigation',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private globals: Globals) { }
 
   ngOnInit() {
+  }
+
+  changeMode(value: boolean) {
+    this.globals.editMode = value;
   }
 
 }
