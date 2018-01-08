@@ -7,13 +7,17 @@ import { Globals } from '../globals';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
+  private editMode: boolean;
 
-  constructor(private globals: Globals) { }
+  constructor(private globals: Globals) {
+    this.editMode = globals.editMode;
+  }
 
   ngOnInit() {
   }
 
   changeMode(value: boolean) {
+    this.editMode = value;
     this.globals.editMode = value;
   }
 
