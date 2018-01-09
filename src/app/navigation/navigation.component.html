@@ -16,8 +16,8 @@
     </div>
     <div>
       <form class="navbar-form navbar-right">
-        <button *ngIf="!globals.editMode" (click)="changeMode(true)" class="btn btn-info">Просмотр</button>
-        <button *ngIf="globals.editMode" (click)="changeMode(false)" class="btn btn-danger">Редактирование</button>
+        <button *ngIf="!globals.editMode.value" (click)="changeMode(true)" class="btn btn-info">Просмотр</button>
+        <button *ngIf="globals.editMode.value" (click)="changeMode(false)" class="btn btn-danger">Редактирование</button>
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Поиск" disabled>
         </div>

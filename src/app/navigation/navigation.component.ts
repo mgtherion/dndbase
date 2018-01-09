@@ -14,7 +14,7 @@ export class NavigationComponent implements OnInit {
   }
 
   changeMode(value: boolean) {
-    this.globals.editMode = value;
+    this.globals.setMode(value);
   }
 
 }
