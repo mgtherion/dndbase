@@ -12,7 +12,8 @@ import { RaceDetailsComponent } from './races/race-details/race-details.componen
 import { RaceListComponent } from './races/race-list/race-list.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { Globals } from './globals';
-import { ClassesComponent } from './classes/classes.component';
+import { ClassListComponent } from './classes/class-list/class-list.component';
+import { ClassDetailsComponent } from './classes/class-details/class-details.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ClassesComponent } from './classes/classes.component';
     RaceDetailsComponent,
     RaceListComponent,
     NavigationComponent,
-    ClassesComponent
+    ClassListComponent,
+    ClassDetailsComponent
   ],
   imports: [
     BrowserModule,
