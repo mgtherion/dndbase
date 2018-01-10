@@ -6,29 +6,23 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './heroes/heroes.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { HeroService } from './hero.service';
-import { MessagesComponent } from './messages/messages.component';
-import { MessageService } from './message.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RaceDetailsComponent } from './races/race-details/race-details.component';
 import { RaceListComponent } from './races/race-list/race-list.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { Globals } from './globals';
+import { ClassesComponent } from './classes/classes.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent,
-    HeroDetailComponent,
-    MessagesComponent,
     DashboardComponent,
     RaceDetailsComponent,
     RaceListComponent,
-    NavigationComponent
+    NavigationComponent,
+    ClassesComponent
   ],
   imports: [
     BrowserModule,
@@ -39,8 +33,6 @@ import { Globals } from './globals';
     FroalaViewModule.forRoot()
   ],
   providers: [
-    HeroService,
-    MessageService,
     Globals
   ],
   bootstrap: [AppComponent]

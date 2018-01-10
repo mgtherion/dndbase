@@ -27,7 +27,8 @@ export class RaceDetailsComponent {
     toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'fontSize',
                       'color', '|', 'specialCharacters', 'clearFormatting', '|', 'undo', 'redo'],
     quickInsertButtons: [],
-    quickInsertTags: []
+    quickInsertTags: [],
+    placeholderText: ''
   }
 
   ngOnInit() {
