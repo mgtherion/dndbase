@@ -16,7 +16,8 @@
         </div>
         <div class="form-group">
             <label for="race-descrtiption">Описание</label>
-            <textarea class="form-control" name="race-descrtiption" [(ngModel)]="race.description" placeholder="Descrtiption" [froalaEditor]></textarea>
+            <textarea class="form-control" name="race-descrtiption" [(froalaModel)]="race.description" placeholder="Descrtiption" [froalaEditor]="options"></textarea>
+            <div [froalaView]="race.description"></div>
         </div>
         <button class="btn btn-primary" *ngIf="!race._id" (click)="createRace(race)">Create</button>
         <button class="btn btn-info" *ngIf="race._id" (click)="updateRace(race)">Update</button>

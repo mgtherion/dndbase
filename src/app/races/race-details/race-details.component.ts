@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Race } from '../race';
 import { RaceService } from '../race.service';
 import { Globals } from '../../globals';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 @Component({
   selector: 'race-details',
@@ -22,8 +23,15 @@ export class RaceDetailsComponent {
 
   constructor(private raceService: RaceService, public globals: Globals) {}
 
+  public options: any = {
+    toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'fontSize',
+                      'color', '|', 'specialCharacters', 'clearFormatting', '|', 'undo', 'redo'],
+    quickInsertButtons: [],
+    quickInsertTags: []
+  }
+
   ngOnInit() {
-    this.globals.editMode.subscribe(test => console.log(121, test));
+    //this.globals.editMode.subscribe(mode => console.log(mode));
   }
 
   createRace(race: Race) {
