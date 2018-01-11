@@ -98,7 +98,7 @@ app.delete('/api/races/:id', function(req, res) {
         if (err) {
             handleError(res, err.message, 'Failed to delete race');
         } else {
-            res.status(200).json(res.params.id);
+            res.status(200).json(req.params.id);
         }
     });
 });
