@@ -25,7 +25,7 @@ export class RaceDetailsComponent {
 
   public options: any = {
     toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'fontSize',
-                      'color', '|', 'specialCharacters', 'clearFormatting', '|', 'undo', 'redo'],
+                      'color', '|', 'insertLink', 'specialCharacters', 'clearFormatting', '|', 'undo', 'redo'],
     quickInsertButtons: [],
     quickInsertTags: [],
     placeholderText: ''
