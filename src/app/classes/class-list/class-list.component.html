@@ -1,3 +1,23 @@
-<p>
-  class-list works!
-</p>
+<div class="row">
+    <div class="col-md-3">
+        <h2>Классы</h2>
+        <ul class="list-group">
+            <li class="list-group-item"
+                *ngFor="let class of classes"
+                (click)="selectClass(class)"
+                [class.active]="class === selectedClass">
+                {{ class.name }}
+            </li>
+        </ul>
+        <button class="btn btn-warning" (click)="createNewClass()">New</button>
+    </div>
+    <div class="col-md-8 col-md-offset-1">
+        <class-details
+            [class]="selectedClass"
+            [createHandler]="addClass"
+            [updateHandler]="updateClass"
+            [deleteHandler]="deleteClass">
+        </class-details>
+    </div>
+
+</div>
