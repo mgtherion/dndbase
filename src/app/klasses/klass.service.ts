@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class KlassService {
-  private klassesUrl = '/api/klasses';
+  private klassesUrl = '/api/classes';
 
   constructor(private http: Http) { }
 
