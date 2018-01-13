@@ -1,4 +1,4 @@
-export class Klass {
+export class Skill {
   _id?: string;
   name: string;
   tooltip: string;
