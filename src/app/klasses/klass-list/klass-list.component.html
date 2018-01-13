@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-md-3">
+        <h2>Классы</h2>
+        <ul class="list-group">
+            <li class="list-group-item"
+                *ngFor="let klass of klasses"
+                (click)="selectKlass(klass)"
+                [class.active]="klass === selectedKlass">
+                {{ klass.name }}
+            </li>
+        </ul>
+        <button class="btn btn-warning" (click)="createNewKlass()">New</button>
+    </div>
+    <div class="col-md-8 col-md-offset-1">
+        <klass-details
+            [klass]="selectedKlass"
+            [createHandler]="addKlass"
+            [updateHandler]="updateKlass"
+            [deleteHandler]="deleteKlass">
+        </klass-details>
+    </div>
+
+</div>
