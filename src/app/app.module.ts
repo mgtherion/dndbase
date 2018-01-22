@@ -16,6 +16,8 @@ import { KlassListComponent } from './klasses/klass-list/klass-list.component';
 import { KlassDetailsComponent } from './klasses/klass-details/klass-details.component';
 import { SkillListComponent } from './skills/skill-list/skill-list.component';
 import { SkillDetailsComponent } from './skills/skill-details/skill-details.component';
+import { ItemDetailsComponent } from './items/item-details/item-details.component';
+import { ItemListComponent } from './items/item-list/item-list.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { SkillDetailsComponent } from './skills/skill-details/skill-details.comp
     KlassListComponent,
     KlassDetailsComponent,
     SkillListComponent,
-    SkillDetailsComponent
+    SkillDetailsComponent,
+    ItemDetailsComponent,
+    ItemListComponent
   ],
   imports: [
     BrowserModule,
