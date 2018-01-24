@@ -16,6 +16,7 @@ export class ItemListComponent implements OnInit {
   items: Item[]
   selectedItem: Item
   private sub: Subscription;
+  loaded: Boolean = false;
 
   constructor(private itemService: ItemService,
               private route: ActivatedRoute,
@@ -26,6 +27,7 @@ export class ItemListComponent implements OnInit {
         .getItems()
         .then((items: Item[]) => {
 
+          this.loaded = true;
           this.items = items.map((item) => {
             if (!item.tooltip) {
               item.tooltip = 'Author is too lazy to write a tooltip';
