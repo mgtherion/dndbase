@@ -16,6 +16,7 @@ export class RaceListComponent implements OnInit {
   races: Race[]
   selectedRace: Race
   private sub: Subscription;
+  loaded: Boolean = false;
 
   constructor(private raceService: RaceService,
               private route: ActivatedRoute,
@@ -55,6 +56,7 @@ export class RaceListComponent implements OnInit {
             "createDate":"2018-01-05T04:07:54.258Z"
           }];*/
 
+          this.loaded = true;
           this.races = races.map((race) => {
             if (!race.tooltip) {
               race.tooltip = 'Author is too lazy to write a tooltip';

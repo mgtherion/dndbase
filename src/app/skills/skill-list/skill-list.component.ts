@@ -16,6 +16,7 @@ export class SkillListComponent implements OnInit {
   skills: Skill[]
   selectedSkill: Skill
   private sub: Subscription;
+  loaded: Boolean = false;
 
   constructor(private skillService: SkillService,
               private route: ActivatedRoute,
@@ -26,6 +27,7 @@ export class SkillListComponent implements OnInit {
         .getSkills()
         .then((skills: Skill[]) => {
 
+          this.loaded = true;
           this.skills = skills.map((skill) => {
             if (!skill.tooltip) {
               skill.tooltip = 'Author is too lazy to write a tooltip';

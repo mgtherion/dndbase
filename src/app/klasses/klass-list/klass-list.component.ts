@@ -16,6 +16,7 @@ export class KlassListComponent implements OnInit {
   klasses: Klass[]
   selectedKlass: Klass
   private sub: Subscription;
+  loaded: Boolean = false;
 
   constructor(private klassService: KlassService,
               private route: ActivatedRoute,
@@ -26,6 +27,7 @@ export class KlassListComponent implements OnInit {
         .getKlasses()
         .then((klasses: Klass[]) => {
 
+          this.loaded = true;
           this.klasses = klasses.map((klass) => {
             if (!klass.tooltip) {
               klass.tooltip = 'Author is too lazy to write a tooltip';
