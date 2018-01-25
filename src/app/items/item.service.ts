@@ -10,7 +10,7 @@ export class ItemService {
   constructor(private http: Http) { }
 
   // get('/api/items')
-  getItems(): Promise<void | Item[]> {
+  getEntity(): Promise<void | Item[]> {
     return this.http.get(this.itemsUrl)
                     .toPromise()
                     .then(response => response.json() as Item[])

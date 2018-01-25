@@ -13,8 +13,8 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class ItemListComponent implements OnInit {
 
-  items: Item[]
-  selectedItem: Item
+  items: Item[];
+  selectedItem: Item;
   private sub: Subscription;
   loaded: Boolean = false;
 
@@ -24,7 +24,7 @@ export class ItemListComponent implements OnInit {
 
   ngOnInit() {
     this.itemService
-        .getItems()
+        .getEntity()
         .then((items: Item[]) => {
 
           this.loaded = true;

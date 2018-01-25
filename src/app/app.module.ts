@@ -18,6 +18,8 @@ import { SkillListComponent } from './skills/skill-list/skill-list.component';
 import { SkillDetailsComponent } from './skills/skill-details/skill-details.component';
 import { ItemDetailsComponent } from './items/item-details/item-details.component';
 import { ItemListComponent } from './items/item-list/item-list.component';
+import { BaseListComponent } from './base/base-list/base-list.component';
+import { TestListComponent } from './test/test-list/test-list.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { ItemListComponent } from './items/item-list/item-list.component';
     SkillListComponent,
     SkillDetailsComponent,
     ItemDetailsComponent,
-    ItemListComponent
+    ItemListComponent,
+    BaseListComponent,
+    TestListComponent
   ],
   imports: [
     BrowserModule,
