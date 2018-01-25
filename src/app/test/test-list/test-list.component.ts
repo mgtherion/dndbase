@@ -1,12 +1,13 @@
 import { Component, Injector } from '@angular/core';
 import { BaseListComponent } from '../../base/base-list/base-list.component';
 import { TestService } from '../test.service';
+import { ItemService } from '../../items/item.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'test-list',
   templateUrl: './test-list.component.html',
-  providers: [ TestService ]
+  providers: [ TestService, ItemService ]
 })
 export class TestListComponent extends BaseListComponent {
   entityDefaults = {
