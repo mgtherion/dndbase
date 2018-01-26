@@ -28,10 +28,8 @@ export class BaseListComponent implements OnInit {
     this.route = injector.get(ActivatedRoute);
   }
 
-  //not usable service-like mock only for type requirements, overwrite is a must
-  getService() {
-    return { getEntity: () => { return { then: (f) => { } } } };
-  }
+  //overwrite is a must
+  getService(): any { }
 
   ngOnInit() {
     this.getService()

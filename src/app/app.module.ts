@@ -20,6 +20,8 @@ import { ItemDetailsComponent } from './items/item-details/item-details.componen
 import { ItemListComponent } from './items/item-list/item-list.component';
 import { BaseListComponent } from './base/base-list/base-list.component';
 import { TestListComponent } from './test/test-list/test-list.component';
+import { BaseDetailsComponent } from './base/base-details/base-details.component';
+import { TestDetailsComponent } from './test/test-details/test-details.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { TestListComponent } from './test/test-list/test-list.component';
     ItemDetailsComponent,
     ItemListComponent,
     BaseListComponent,
-    TestListComponent
+    TestListComponent,
+    BaseDetailsComponent,
+    TestDetailsComponent
   ],
   imports: [
     BrowserModule,

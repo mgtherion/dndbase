@@ -9,11 +9,9 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
   templateUrl: './item-details.component.html',
   styleUrls: ['./item-details.component.css']
 })
-
 export class ItemDetailsComponent {
   @Input()
   item: Item;
-
   @Input()
   createHandler: Function;
   @Input()
