@@ -4,20 +4,20 @@
         <div *ngIf="!loaded" class="loader"></div>
         <ul class="list-group">
             <li class="list-group-item"
-                *ngFor="let item of items"
-                (click)="selectItem(item)"
-                [class.active]="item === selectedItem">
-                {{ item.name }}
+                *ngFor="let entity of entities"
+                (click)="selectEntity(entity)"
+                [class.active]="entity === selectedEntity">
+                {{ entity.name }}
             </li>
         </ul>
-        <button class="btn btn-warning" (click)="createNewItem()">New</button>
+        <button class="btn btn-warning" (click)="createNewEntity()">Новый</button>
     </div>
     <div class="col-md-8 col-md-offset-1">
         <item-details
-            [item]="selectedItem"
-            [createHandler]="addItem"
-            [updateHandler]="updateItem"
-            [deleteHandler]="deleteItem">
+            [item]="selectedEntity"
+            [createHandler]="addEntity"
+            [updateHandler]="updateEntity"
+            [deleteHandler]="deleteEntity">
         </item-details>
     </div>
 
