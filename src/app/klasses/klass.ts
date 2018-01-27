@@ -1,6 +1,5 @@
-export class Klass {
-  _id?: string;
-  name: string;
+import { Entity } from '../base/entity';
+
+export class Klass extends Entity {
   tooltip: string;
-  description: string;
 }

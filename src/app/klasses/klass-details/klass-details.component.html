@@ -1,26 +1,26 @@
-<div *ngIf="klass" class="row">
+<div *ngIf="entity" class="row">
     <div class="col-md-12">
-        <h2 *ngIf="klass._id">Подробности класса</h2>
-        <h2 *ngIf="!klass._id">Новая класс</h2>
+        <h2 *ngIf="entity._id">Подробности класса</h2>
+        <h2 *ngIf="!entity._id">Новый класс</h2>
     </div>
 </div>
-<div *ngIf="klass" class="row">
+<div *ngIf="entity" class="row">
     <form class="col-md-12">
         <div class="form-group">
             <label for="class-name">Имя</label>
-            <input class="form-control" name="class-name" [(ngModel)]="klass.name" placeholder="Name"/>
+            <input class="form-control" name="class-name" [(ngModel)]="entity.name" placeholder="Name"/>
         </div>
         <div class="form-group">
             <label for="class-tooltip">Подсказка</label>
-            <input class="form-control" name="class-tooltip" [(ngModel)]="klass.tooltip" placeholder="Tooltip"/>
+            <input class="form-control" name="class-tooltip" [(ngModel)]="entity.tooltip" placeholder="Tooltip"/>
         </div>
         <div class="form-group">
             <label for="class-descrtiption">Описание</label>
-            <textarea class="form-control" name="class-descrtiption" [(froalaModel)]="klass.description" placeholder="Descrtiption" [froalaEditor]="options"></textarea>
-            <div [froalaView]="klass.description"></div>
+            <textarea class="form-control" name="class-description" [(froalaModel)]="entity.description" placeholder="Description" [froalaEditor]="options"></textarea>
+            <div [froalaView]="entity.description"></div>
         </div>
-        <button class="btn btn-primary" *ngIf="!klass._id" (click)="createKlass(klass)">Create</button>
-        <button class="btn btn-info" *ngIf="klass._id" (click)="updateKlass(klass)">Update</button>
-        <button class="btn btn-danger" *ngIf="klass._id" (click)="deleteKlass(klass._id)">Delete</button>
+        <button class="btn btn-primary" *ngIf="!entity._id" (click)="createEntity(entity)">Create</button>
+        <button class="btn btn-info" *ngIf="entity._id" (click)="updateEntity(entity)">Update</button>
+        <button class="btn btn-danger" *ngIf="entity._id" (click)="deleteEntity(entity._id)">Delete</button>
     </form>
 </div>
