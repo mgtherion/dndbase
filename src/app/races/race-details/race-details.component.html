@@ -1,26 +1,26 @@
-<div *ngIf="race" class="row">
+<div *ngIf="entity" class="row">
     <div class="col-md-12">
-        <h2 *ngIf="race._id">Подробности расы</h2>
-        <h2 *ngIf="!race._id">Новая раса</h2>
+        <h2 *ngIf="entity._id">Подробности расы</h2>
+        <h2 *ngIf="!entity._id">Новая раса</h2>
     </div>
 </div>
-<div *ngIf="race" class="row">
+<div *ngIf="entity" class="row">
     <form class="col-md-12">
         <div class="form-group">
-            <label for="race-name">Имя</label>
-            <input class="form-control" name="race-name" [(ngModel)]="race.name" placeholder="Name"/>
+            <label for="class-name">Имя</label>
+            <input class="form-control" name="class-name" [(ngModel)]="entity.name" placeholder="Name"/>
         </div>
         <div class="form-group">
-            <label for="race-tooltip">Подсказка</label>
-            <input class="form-control" name="race-tooltip" [(ngModel)]="race.tooltip" placeholder="Tooltip"/>
+            <label for="class-tooltip">Подсказка</label>
+            <input class="form-control" name="class-tooltip" [(ngModel)]="entity.tooltip" placeholder="Tooltip"/>
         </div>
         <div class="form-group">
-            <label for="race-descrtiption">Описание</label>
-            <textarea class="form-control" name="race-descrtiption" [(froalaModel)]="race.description" placeholder="Descrtiption" [froalaEditor]="options"></textarea>
-            <div [froalaView]="race.description"></div>
+            <label for="class-descrtiption">Описание</label>
+            <textarea class="form-control" name="class-description" [(froalaModel)]="entity.description" placeholder="Description" [froalaEditor]="options"></textarea>
+            <div [froalaView]="entity.description"></div>
         </div>
-        <button class="btn btn-primary" *ngIf="!race._id" (click)="createRace(race)">Create</button>
-        <button class="btn btn-info" *ngIf="race._id" (click)="updateRace(race)">Update</button>
-        <button class="btn btn-danger" *ngIf="race._id" (click)="deleteRace(race._id)">Delete</button>
+        <button class="btn btn-primary" *ngIf="!entity._id" (click)="createEntity(entity)">Create</button>
+        <button class="btn btn-info" *ngIf="entity._id" (click)="updateEntity(entity)">Update</button>
+        <button class="btn btn-danger" *ngIf="entity._id" (click)="deleteEntity(entity._id)">Delete</button>
     </form>
 </div>

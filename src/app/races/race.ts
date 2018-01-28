@@ -1,6 +1,5 @@
-export class Race {
-  _id?: string;
-  name: string;
+import { Entity } from '../base/entity';
+
+export class Race extends Entity {
   tooltip: string;
-  description: string;
 }
