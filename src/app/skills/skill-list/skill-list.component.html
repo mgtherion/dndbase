@@ -4,20 +4,20 @@
         <div *ngIf="!loaded" class="loader"></div>
         <ul class="list-group">
             <li class="list-group-item"
-                *ngFor="let skill of skills"
-                (click)="selectSkill(skill)"
-                [class.active]="skill === selectedSkill">
-                {{ skill.name }}
+                *ngFor="let entity of entities"
+                (click)="selectEntity(entity)"
+                [class.active]="entity === selectedEntity">
+                {{ entity.name }}
             </li>
         </ul>
-        <button class="btn btn-warning" (click)="createNewSkill()">New</button>
+        <button class="btn btn-warning" (click)="createNewEntity()">Новое</button>
     </div>
     <div class="col-md-8 col-md-offset-1">
         <skill-details
-            [skill]="selectedSkill"
-            [createHandler]="addSkill"
-            [updateHandler]="updateSkill"
-            [deleteHandler]="deleteSkill">
+            [entity]="selectedEntity"
+            [createHandler]="addEntity"
+            [updateHandler]="updateEntity"
+            [deleteHandler]="deleteEntity">
         </skill-details>
     </div>
 

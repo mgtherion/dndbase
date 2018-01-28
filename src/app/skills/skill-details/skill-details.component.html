@@ -1,26 +1,26 @@
-<div *ngIf="skill" class="row">
+<div *ngIf="entity" class="row">
     <div class="col-md-12">
-        <h2 *ngIf="skill._id">Подробности умения</h2>
-        <h2 *ngIf="!skill._id">Новое умение</h2>
+        <h2 *ngIf="entity._id">Подробности умения</h2>
+        <h2 *ngIf="!entity._id">Новое умение</h2>
     </div>
 </div>
-<div *ngIf="skill" class="row">
+<div *ngIf="entity" class="row">
     <form class="col-md-12">
         <div class="form-group">
-            <label for="skill-name">Имя</label>
-            <input class="form-control" name="skill-name" [(ngModel)]="skill.name" placeholder="Name"/>
+            <label for="class-name">Имя</label>
+            <input class="form-control" name="class-name" [(ngModel)]="entity.name" placeholder="Name"/>
         </div>
         <div class="form-group">
-            <label for="skill-tooltip">Подсказка</label>
-            <input class="form-control" name="skill-tooltip" [(ngModel)]="skill.tooltip" placeholder="Tooltip"/>
+            <label for="class-tooltip">Подсказка</label>
+            <input class="form-control" name="class-tooltip" [(ngModel)]="entity.tooltip" placeholder="Tooltip"/>
         </div>
         <div class="form-group">
-            <label for="skill-descrtiption">Описание</label>
-            <textarea class="form-control" name="skill-descrtiption" [(froalaModel)]="skill.description" placeholder="Descrtiption" [froalaEditor]="options"></textarea>
-            <div [froalaView]="skill.description"></div>
+            <label for="class-descrtiption">Описание</label>
+            <textarea class="form-control" name="class-description" [(froalaModel)]="entity.description" placeholder="Description" [froalaEditor]="options"></textarea>
+            <div [froalaView]="entity.description"></div>
         </div>
-        <button class="btn btn-primary" *ngIf="!skill._id" (click)="createSkill(skill)">Create</button>
-        <button class="btn btn-info" *ngIf="skill._id" (click)="updateSkill(skill)">Update</button>
-        <button class="btn btn-danger" *ngIf="skill._id" (click)="deleteSkill(skill._id)">Delete</button>
+        <button class="btn btn-primary" *ngIf="!entity._id" (click)="createEntity(entity)">Create</button>
+        <button class="btn btn-info" *ngIf="entity._id" (click)="updateEntity(entity)">Update</button>
+        <button class="btn btn-danger" *ngIf="entity._id" (click)="deleteEntity(entity._id)">Delete</button>
     </form>
 </div>
