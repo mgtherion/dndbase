@@ -19,9 +19,9 @@ export class RichareaComponent {
   //}
   //description: string = '';
 
-  //setValue() {
-  //  this.emitter.emit(this.description);
-  //}
+  setValue() {
+    this.emitter.emit(this.description);
+  }
   public options: any = {
     toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'fontSize',
                       'color', '|', 'specialCharacters', 'clearFormatting', '|', 'undo', 'redo'],
