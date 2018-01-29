@@ -6,19 +6,12 @@
 </div>
 <div *ngIf="entity" class="row">
     <form class="col-md-12">
-        <div class="form-group">
-            <label for="class-name">Имя</label>
-            <input class="form-control" name="class-name" [(ngModel)]="entity.name" placeholder="Name"/>
-        </div>
-        <div class="form-group">
-            <label for="class-tooltip">Подсказка</label>
-            <input class="form-control" name="class-tooltip" [(ngModel)]="entity.tooltip" placeholder="Tooltip"/>
-        </div>
-        <div class="form-group">
-            <label for="class-descrtiption">Описание</label>
-            <textarea class="form-control" name="class-description" [(froalaModel)]="entity.description" placeholder="Description" [froalaEditor]="options"></textarea>
-            <div [froalaView]="entity.description"></div>
-        </div>
+        <form-field [(bindTo)]="entity.name" [label]="'Имя'"></form-field>
+
+        <form-field [(bindTo)]="entity.tooltip" [label]="'Подсказка'"></form-field>
+
+        <form-textarea [(bindTo)]="entity.description" [label]="'Описание'"></form-textarea>
+
         <button class="btn btn-primary" *ngIf="!entity._id" (click)="createEntity(entity)">Create</button>
         <button class="btn btn-info" *ngIf="entity._id" (click)="updateEntity(entity)">Update</button>
         <button class="btn btn-danger" *ngIf="entity._id" (click)="deleteEntity(entity._id)">Delete</button>

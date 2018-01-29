@@ -1,15 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-field',
+  selector: 'form-field',
   templateUrl: './field.component.html',
   styleUrls: ['./field.component.css']
 })
-export class FieldComponent implements OnInit {
+export class FieldComponent {
 
-  constructor() { }
+  @Output('bindToChange')
+  emitter: EventEmitter<string> = new EventEmitter<string>();
 
-  ngOnInit() {
+  @Input('bindTo')
+  set initValue(init) {
+    this.value = init;
   }
+  value: string = '';
+
+  @Input('label')
+  label: string;
+
+  setValue(e) {
+    Observable.timer(50).subscribe(() => {
+      this.emitter.emit(e.target.value);
+    });
+
+  }
+
+
 
 }

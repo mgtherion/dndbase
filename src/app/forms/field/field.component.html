@@ -1,3 +1,8 @@
-<p>
-  field works!
-</p>
+<div class="form-group">
+    <label for="class-tooltip">{{ label }}</label>
+    <input
+      class="form-control"
+      name="class-tooltip"
+      [(ngModel)]="value"
+      (keydown)="setValue($event)"/>
+</div>

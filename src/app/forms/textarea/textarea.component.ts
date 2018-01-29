@@ -17,6 +17,9 @@ export class TextareaComponent {
   }
   value: string = '';
 
+  @Input('label')
+  label: string;
+
   setValue(e) {
     Observable.timer(50).subscribe(() => {
       this.emitter.emit(e.target.value);
