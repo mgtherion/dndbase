@@ -1,9 +1,14 @@
 <div class="form-group">
     <label for="descrtiption">{{ label }}</label>
     <textarea
+      *ngIf="globals.editMode.value"
       class="form-control"
       name="description"
       [(ngModel)]="value"
       (keydown)="setValue($event)">
     </textarea>
+    <span
+      *ngIf="!globals.editMode.value">
+      {{value}}
+    </span>
 </div>

@@ -1,8 +1,13 @@
 <div class="form-group">
     <label for="class-tooltip">{{ label }}</label>
     <input
+      *ngIf="globals.editMode.value"
       class="form-control"
       name="class-tooltip"
       [(ngModel)]="value"
       (keydown)="setValue($event)"/>
+    <span
+      *ngIf="!globals.editMode.value">
+      {{value}}
+    </span>
 </div>

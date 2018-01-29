@@ -1,5 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, Injector } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Globals } from '../../globals';
 
 @Component({
   selector: 'form-field',
@@ -24,9 +25,10 @@ export class FieldComponent {
     Observable.timer(50).subscribe(() => {
       this.emitter.emit(e.target.value);
     });
-
   }
 
-
-
+  globals;
+  constructor(injector: Injector) {
+    this.globals = injector.get(Globals);
+  }
 }
