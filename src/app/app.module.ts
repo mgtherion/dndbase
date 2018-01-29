@@ -20,6 +20,9 @@ import { ItemDetailsComponent } from './items/item-details/item-details.componen
 import { ItemListComponent } from './items/item-list/item-list.component';
 import { BaseListComponent } from './base/base-list/base-list.component';
 import { BaseDetailsComponent } from './base/base-details/base-details.component';
+import { RichareaComponent } from './forms/richarea/richarea.component';
+import { TextareaComponent } from './forms/textarea/textarea.component';
+import { FieldComponent } from './forms/field/field.component';
 
 
 @NgModule({
@@ -36,7 +39,10 @@ import { BaseDetailsComponent } from './base/base-details/base-details.component
     ItemDetailsComponent,
     ItemListComponent,
     BaseListComponent,
-    BaseDetailsComponent
+    BaseDetailsComponent,
+    RichareaComponent,
+    TextareaComponent,
+    FieldComponent
   ],
   imports: [
     BrowserModule,

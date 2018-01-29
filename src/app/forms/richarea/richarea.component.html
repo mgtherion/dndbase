@@ -1,0 +1,6 @@
+<div class="form-group">
+  <label for="class-descrtiption">Описание</label>
+  <textarea class="form-control" name="class-description" [(froalaModel)]="description" placeholder="Desc" [froalaEditor]="options" (onclick)="setValue()"></textarea>
+  <!--<div [froalaView]="description"></div>-->
+  <pre>{{ description }}</pre>
+</div>
