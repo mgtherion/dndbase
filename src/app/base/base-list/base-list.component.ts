@@ -37,6 +37,11 @@ export class BaseListComponent implements OnInit {
         .then((items) => {
 
           this.loaded = true;
+          if (!items) {
+            console.error('Get entity request failed');
+            return;
+          }
+
           this.entities = items.map(
                     (item) => { return _.defaults(item, this.entityDefaults) })
 

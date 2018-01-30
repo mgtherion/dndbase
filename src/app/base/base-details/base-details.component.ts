@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Injector } from '@angular/core';
-//import { Globals } from '../../globals';
+import { Globals } from '../../globals';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'base-details',
@@ -16,12 +17,20 @@ export class BaseDetailsComponent implements OnInit {
   @Input()
   deleteHandler: Function;
 
+  globals;
   constructor(injector: Injector) {
-    //this.globals = injector.get(Grobals);
+   this.globals = injector.get(Globals);
   }
 
+  private sub: Subscription;
   ngOnInit() {
-    //this.globals.editMode.subscribe(mode => console.log(mode));
+    this.sub = this.globals.editMode.subscribe(mode => console.log(mode));
+  }
+
+  ngOnDestroy() {
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 
   //overwrite is a must
