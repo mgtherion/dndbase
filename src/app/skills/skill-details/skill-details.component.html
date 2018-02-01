@@ -13,7 +13,7 @@
         <form-textarea [(bindTo)]="entity.description" [label]="'Описание'"></form-textarea>
 
         <button
-            *ngIf="globals.editMode.value && !entity_id"
+            *ngIf="globals.editMode.value && !entity._id"
             class="btn btn-primary"
             (click)="createEntity(entity)">
                 Create
