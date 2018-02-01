@@ -12,8 +12,23 @@
 
         <form-textarea [(bindTo)]="entity.description" [label]="'Описание'"></form-textarea>
 
-        <button class="btn btn-primary" *ngIf="!entity._id" (click)="createEntity(entity)">Create</button>
-        <button class="btn btn-info" *ngIf="entity._id" (click)="updateEntity(entity)">Update</button>
-        <button class="btn btn-danger" *ngIf="entity._id" (click)="deleteEntity(entity._id)">Delete</button>
+        <button
+            *ngIf="globals.editMode.value && !entity_id"
+            class="btn btn-primary"
+            (click)="createEntity(entity)">
+                Create
+        </button>
+        <button
+            *ngIf="globals.editMode.value && entity._id"
+            class="btn btn-info"
+            (click)="updateEntity(entity)">
+                Update
+        </button>
+        <button
+            *ngIf="globals.editMode.value && entity._id"
+            class="btn btn-danger"
+            (click)="deleteEntity(entity._id)">
+                Delete
+        </button>
     </form>
 </div>

@@ -6,8 +6,8 @@
       name="class-tooltip"
       [(ngModel)]="value"
       (keydown)="setValue($event)"/>
-    <span
+    <div class="font-medium"
       *ngIf="!globals.editMode.value">
       {{value}}
-    </span>
+    </div>
 </div>

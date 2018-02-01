@@ -10,7 +10,12 @@
                 {{ entity.name }}
             </li>
         </ul>
-        <button class="btn btn-warning" (click)="createNewEntity()">Новый</button>
+        <button
+            *ngIf="globals.editMode.value"
+            class="btn btn-warning"
+            (click)="createNewEntity()">
+                Новый
+        </button>
     </div>
     <div class="col-md-8 col-md-offset-1">
         <item-details

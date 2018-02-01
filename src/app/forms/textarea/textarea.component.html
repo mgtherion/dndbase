@@ -7,8 +7,8 @@
       [(ngModel)]="value"
       (keydown)="setValue($event)">
     </textarea>
-    <span
+    <div class="font-medium"
       *ngIf="!globals.editMode.value">
       {{value}}
-    </span>
+    </div>
 </div>

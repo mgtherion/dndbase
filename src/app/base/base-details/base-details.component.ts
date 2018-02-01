@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Injector } from '@angular/core';
 import { Globals } from '../../globals';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
@@ -18,13 +19,17 @@ export class BaseDetailsComponent implements OnInit {
   deleteHandler: Function;
 
   globals;
+  private route: ActivatedRoute;
   constructor(injector: Injector) {
    this.globals = injector.get(Globals);
+   this.route = injector.get(ActivatedRoute);
   }
 
   private sub: Subscription;
   ngOnInit() {
-    this.sub = this.globals.editMode.subscribe(mode => console.log(mode));
+    this.sub = this.globals.editMode.subscribe(function(mode) {
+      console.log(mode);
+    });
   }
 
   ngOnDestroy() {

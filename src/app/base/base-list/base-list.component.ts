@@ -1,5 +1,6 @@
 import { Component, OnInit, Injector } from '@angular/core';
 import { Entity } from '../entity';
+import { Globals } from '../../globals';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import _ from 'lodash';
@@ -19,19 +20,28 @@ export class BaseListComponent implements OnInit {
   loaded: Boolean = false;
   selectedEntity;
 
-  private sub: Subscription;
+  private subIdParam: Subscription;
+  //private subModeChange: Subscription;
   private route: ActivatedRoute;
   private router: Router;
+  globals;
+
+  statusCreate: Boolean = false;
 
   constructor(injector: Injector) {
     this.router = injector.get(Router);
     this.route = injector.get(ActivatedRoute);
+    this.globals = injector.get(Globals);
   }
 
   //overwrite is a must
   getService(): any { }
 
   ngOnInit() {
+    //this.subModeChange = this.globals.editMode.subscribe(function(mode) {
+      //console.log(mode);
+    //});
+
     this.getService()
         .getEntity()
         .then((items) => {
@@ -46,7 +56,7 @@ export class BaseListComponent implements OnInit {
                     (item) => { return _.defaults(item, this.entityDefaults) })
 
           //get selected item from url query parameter
-          this.sub = this.route.queryParams.subscribe(params => {
+          this.subIdParam = this.route.queryParams.subscribe(params => {
             if (params.id && !(this.selectedEntity)) {
               this.selectedEntity = this.entities.filter(item => item._id == params.id)[0];
             }
@@ -55,9 +65,13 @@ export class BaseListComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    if (this.sub) {
-      this.sub.unsubscribe();
+    if (this.subIdParam) {
+      this.subIdParam.unsubscribe();
     }
+
+    //if (this.subModeChange) {
+    //  this.subModeChange.unsubscribe();
+    //}
   }
 
   private getIndexOfEntity = (itemId: String) => {
@@ -73,6 +87,7 @@ export class BaseListComponent implements OnInit {
 
   createNewEntity() {
     var entity = _.clone(this.entityEmpty);
+    this.statusCreate = true;
 
     this.selectEntity(entity);
   }
