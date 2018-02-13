@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import _ from 'lodash';
 
+
+//asdf
 @Component({
   selector: 'base-list',
   templateUrl: './base-list.component.html',
