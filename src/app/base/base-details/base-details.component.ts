@@ -3,6 +3,8 @@ import { Globals } from '../../globals';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
+//OLOLO
+//1234
 @Component({
   selector: 'base-details',
   templateUrl: './base-details.component.html',
