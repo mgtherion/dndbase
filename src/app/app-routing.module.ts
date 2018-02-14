@@ -5,6 +5,7 @@ import { RaceListComponent } from './races/race-list/race-list.component';
 import { KlassListComponent } from './klasses/klass-list/klass-list.component';
 import { SkillListComponent } from './skills/skill-list/skill-list.component';
 import { ItemListComponent } from './items/item-list/item-list.component';
+import { EnchantsListComponent } from './enchants/enchants-list/enchants-list.component';
 
 const routes: Routes = [
     { path: '', component: DashboardComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
     { path: 'skills', component: SkillListComponent },
     { path: 'skills/:id', component: SkillListComponent },
     { path: 'items', component: ItemListComponent },
-    { path: 'items/:id', component: ItemListComponent }
+    { path: 'items/:id', component: ItemListComponent },
+    { path: 'enchants', component: EnchantsListComponent }
 ];
 
 @NgModule({

@@ -23,6 +23,7 @@ import { BaseDetailsComponent } from './base/base-details/base-details.component
 import { RichareaComponent } from './forms/richarea/richarea.component';
 import { TextareaComponent } from './forms/textarea/textarea.component';
 import { FieldComponent } from './forms/field/field.component';
+import { EnchantsListComponent } from './enchants/enchants-list/enchants-list.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { FieldComponent } from './forms/field/field.component';
     BaseDetailsComponent,
     RichareaComponent,
     TextareaComponent,
-    FieldComponent
+    FieldComponent,
+    EnchantsListComponent
   ],
   imports: [
     BrowserModule,
