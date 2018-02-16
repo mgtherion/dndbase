@@ -19,9 +19,19 @@
         <button *ngIf="!globals.editMode.value" (click)="changeMode(true)" class="btn btn-info">Просмотр</button>
         <button *ngIf="globals.editMode.value" (click)="changeMode(false)" class="btn btn-danger">Редактирование</button>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Поиск" disabled>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Поиск"
+            name="query"
+            [(ngModel)]="query">
         </div>
-        <button type="submit" class="btn btn-default" disabled>Искать</button>
+        <button
+          type="submit"
+          class="btn btn-default"
+          (click)="search()">
+          Искать {{ query }}
+        </button>
       </form>
     </div>
   </div>

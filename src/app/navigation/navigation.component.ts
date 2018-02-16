@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injector, Input } from '@angular/core';
 import { Globals } from '../globals';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'navigation',
@@ -8,13 +9,27 @@ import { Globals } from '../globals';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor(public globals: Globals) {}
+  @Input()
+  query: string;
+
+  globals;
+  private router: Router;
+  private route: ActivatedRoute;
+  constructor(injector: Injector) {
+    this.globals = injector.get(Globals);
+    this.route = injector.get(ActivatedRoute);
+    this.router = injector.get(Router);
+  }
 
   ngOnInit() {
   }
 
   changeMode(value: boolean) {
     this.globals.setMode(value);
+  }
+
+  search() {
+    this.router.navigate(['/search'], {queryParams: {query: this.query}});
   }
 
 }
