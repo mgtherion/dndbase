@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-3">
+        <h2>Зачарования</h2>
+        <div *ngIf="!loaded" class="loader"></div>
+        <ul class="list-group">
+            <li class="list-group-item"
+                *ngFor="let entity of entities"
+                (click)="selectEntity(entity)"
+                [class.active]="entity === selectedEntity">
+                {{ entity.name }}
+            </li>
+        </ul>
+        <button
+            *ngIf="globals.editMode.value"
+            class="btn btn-warning"
+            (click)="createNewEntity()">
+                Новый
+        </button>
+    </div>
+    <div class="col-md-8 col-md-offset-1">
+        <enchantments-details
+            [entity]="selectedEntity"
+            [createHandler]="addEntity"
+            [updateHandler]="updateEntity"
+            [deleteHandler]="deleteEntity">
+        </enchantments-details>
+    </div>
+
+</div>

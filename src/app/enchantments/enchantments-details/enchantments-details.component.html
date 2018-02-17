@@ -1,0 +1,34 @@
+<div *ngIf="entity" class="row">
+    <div class="col-md-12">
+        <h2 *ngIf="entity._id">Подробности зачарования</h2>
+        <h2 *ngIf="!entity._id">Новое зачарование</h2>
+    </div>
+</div>
+<div *ngIf="entity" class="row">
+    <form class="col-md-12">
+        <form-field [(bindTo)]="entity.name" [label]="'Имя'"></form-field>
+
+        <form-field [(bindTo)]="entity.tooltip" [label]="'Подсказка'"></form-field>
+
+        <form-textarea [(bindTo)]="entity.description" [label]="'Описание'"></form-textarea>
+
+        <button
+            *ngIf="globals.editMode.value && !entity._id"
+            class="btn btn-primary"
+            (click)="createEntity(entity)">
+                Create
+        </button>
+        <button
+            *ngIf="globals.editMode.value && entity._id"
+            class="btn btn-info"
+            (click)="updateEntity(entity)">
+                Update
+        </button>
+        <button
+            *ngIf="globals.editMode.value && entity._id"
+            class="btn btn-danger"
+            (click)="deleteEntity(entity._id)">
+                Delete
+        </button>
+    </form>
+</div>
