@@ -6,6 +6,7 @@ import { KlassListComponent } from './klasses/klass-list/klass-list.component';
 import { SkillListComponent } from './skills/skill-list/skill-list.component';
 import { ItemListComponent } from './items/item-list/item-list.component';
 import { SearchComponent } from './search/search.component';
+import { EnchantmentsListComponent } from './enchantments/enchantments-list/enchantments-list.component';
 
 const routes: Routes = [
     { path: '', component: DashboardComponent },

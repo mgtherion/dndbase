@@ -3,7 +3,7 @@ import { BaseService } from '../base/base.service';
 
 @Injectable()
 export class EnchantmentsService extends BaseService {
-  entityUrl = '/api/classes';
+  entityUrl = '/api/enchantments';
 
   constructor(injector: Injector) {
     super(injector);
