@@ -409,7 +409,7 @@ app.delete('/api/enchantments/:id', function(req, res) {
 app.get('/api/search', function(req, res) {
     let query = req.body.query;
 
-    handleError(res, req.params, req.params);
+    handleError(res, req.query, req.query);
     /*
     db.collection(RACES_COLLECTION).ensureIndex({name: 'text', description: 'text'});
 
