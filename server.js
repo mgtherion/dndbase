@@ -23,6 +23,8 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function(err, database) {
     db = database;
     console.log('Database connection ready');
 
+    db.collection(RACES_COLLECTION).ensureIndex({name: 'text', description: 'text'});
+
     var server = app.listen(process.env.PORT || 8800, function() {
         var port = server.address().port;
         console.log('App now running on port ', port);
@@ -332,6 +334,7 @@ app.delete('/api/items/:id', function(req, res) {
         }
     });
 });
+
 /* '/api/enchantments'
  *  GET: get all enchantments
  *  POST: create a new enchantment
@@ -402,4 +405,19 @@ app.delete('/api/enchantments/:id', function(req, res) {
             res.status(200).json(req.params.id);
         }
     });
+});
+
+
+app.get('/api/search', function(req, res) {
+    let query = req.body.query;
+
+    db.collection(RACES_COLLECTION)
+        .find({$text: {$search: query}})
+        .toArray(function(err, docs) {
+            if (err) {
+                handleError(res, err.message, 'Search failed');
+            } else {
+                res.status(200).json(docs);
+            }
+        });
 });
