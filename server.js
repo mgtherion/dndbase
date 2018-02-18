@@ -415,7 +415,7 @@ app.get('/api/search', function(req, res) {
         .find({$text: {$search: query}})
         .toArray(function(err, docs) {
             if (err) {
-                handleError(res, err.message, 'Search');
+                handleError(res, err.message, err.message);
             } else {
                 res.status(200).json(docs);
             }
