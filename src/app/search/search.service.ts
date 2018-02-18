@@ -4,7 +4,7 @@ import { Http, Response } from '@angular/http';
 @Injectable()
 export class SearchService {
 
-  searchUrl: string = '/search';
+  searchUrl: string = '/api/search';
 
   private http: Http;
 
