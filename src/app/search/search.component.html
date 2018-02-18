@@ -1,5 +1,11 @@
 <form-field
-  [(bindTo)]="query.text"
+  [(bindTo)]="query.query"
   [label]="'Текст поиска'"
   [editOnly]="true">
 </form-field>
+
+<button
+    class="btn btn-info"
+    (click)="performSearch()">
+        Search
+</button>
