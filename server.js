@@ -407,10 +407,8 @@ app.delete('/api/enchantments/:id', function(req, res) {
 
 
 app.get('/api/search', function(req, res) {
-    let query = req.body.query;
+    let query = req.query.query;
 
-    handleError(res, req.query, req.query);
-    /*
     db.collection(RACES_COLLECTION).ensureIndex({name: 'text', description: 'text'});
 
     db.collection(RACES_COLLECTION)
@@ -422,5 +420,4 @@ app.get('/api/search', function(req, res) {
                 res.status(200).json(docs);
             }
         });
-    */
 });
