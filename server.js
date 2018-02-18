@@ -23,8 +23,6 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function(err, database) {
     db = database;
     console.log('Database connection ready');
 
-    db.collection(RACES_COLLECTION).ensureIndex({name: 'text', description: 'text'});
-
     var server = app.listen(process.env.PORT || 8800, function() {
         var port = server.address().port;
         console.log('App now running on port ', port);
@@ -411,11 +409,13 @@ app.delete('/api/enchantments/:id', function(req, res) {
 app.get('/api/search', function(req, res) {
     let query = req.body.query;
 
+    db.collection(RACES_COLLECTION).ensureIndex({name: 'text', description: 'text'});
+
     db.collection(RACES_COLLECTION)
         .find({$text: {$search: query}})
         .toArray(function(err, docs) {
             if (err) {
-                handleError(res, err.message, 'Search failed');
+                handleError(res, err.message, 'Search');
             } else {
                 res.status(200).json(docs);
             }
