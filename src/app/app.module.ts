@@ -6,7 +6,7 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RaceDetailsComponent } from './races/race-details/race-details.component';
 import { RaceListComponent } from './races/race-list/race-list.component';
