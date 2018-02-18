@@ -1,3 +1,5 @@
-<p>
-  search works! query is {{ query }}
-</p>
+<form-field
+  [(bindTo)]="query.text"
+  [label]="'Текст поиска'"
+  [editOnly]="true">
+</form-field>

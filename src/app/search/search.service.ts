@@ -13,7 +13,7 @@ export class SearchService {
   }
 
   performSearch(params): Promise<any> {
-    return this.http.get(this.searchUrl, params)
+    return this.http.get(this.searchUrl, {params: params})
         .toPromise()
         .then(response => response.json())
         .catch(this.handleError);

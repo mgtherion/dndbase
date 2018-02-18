@@ -2,19 +2,16 @@ import { Component, OnInit, Injector } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SearchService } from './search.service';
 
-import { RaceService } from '../races/race.service';
-
 @Component({
   selector: 'search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
-  providers: [ SearchService, RaceService ]
+  providers: [ SearchService ]
 })
 export class SearchComponent implements OnInit {
 
-  query: string;
+  query: any = {};
   searchService: SearchService;
-  raceService: RaceService;
 
   private router: Router;
   private route: ActivatedRoute;
@@ -23,16 +20,15 @@ export class SearchComponent implements OnInit {
     this.router = injector.get(Router);
 
     this.searchService = injector.get(SearchService);
-    this.raceService = injector.get(RaceService);
   }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      this.query = params.query;
+      if (params.query) {
+        this.query.text = params.query;
+      }
 
-      console.log(this.searchService);
-      console.log(this.raceService);
-      //this.searchService.performSearch(params.query);
+      this.searchService.performSearch(this.query);
     });
   }
 

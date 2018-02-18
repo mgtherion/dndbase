@@ -21,6 +21,9 @@ export class FieldComponent {
   @Input('label')
   label: string;
 
+  @Input('editOnly')
+  editOnly: boolean = false;
+
   setValue(e) {
     Observable.timer(50).subscribe(() => {
       this.emitter.emit(e.target.value);
