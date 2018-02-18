@@ -24,6 +24,8 @@ import { RichareaComponent } from './forms/richarea/richarea.component';
 import { TextareaComponent } from './forms/textarea/textarea.component';
 import { FieldComponent } from './forms/field/field.component';
 import { SearchComponent } from './search/search.component';
+import { EnchantmentsListComponent } from './enchantments/enchantments-list/enchantments-list.component';
+import { EnchantmentsDetailsComponent } from './enchantments/enchantments-details/enchantments-details.component';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { SearchComponent } from './search/search.component';
     RichareaComponent,
     TextareaComponent,
     FieldComponent,
-    SearchComponent
+    SearchComponent,
+    EnchantmentsListComponent,
+    EnchantmentsDetailsComponent
   ],
   imports: [
     BrowserModule,
