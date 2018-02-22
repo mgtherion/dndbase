@@ -50,7 +50,7 @@ export class BaseListComponent implements OnInit {
 
           this.loaded = true;
           if (!items) {
-            console.error('Get entity request failed');
+            console.error('Get entity request is empty or failed');
             return;
           }
 

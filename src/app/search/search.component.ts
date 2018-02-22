@@ -10,10 +10,13 @@ import { SearchService } from './search.service';
 })
 export class SearchComponent implements OnInit {
 
-  initialSearch = true;
+  private entities: any[];
+  private loaded: boolean = false;
 
-  query: any = {};
-  searchService: SearchService;
+  private initialSearch: boolean = true;
+
+  private query: any = {};
+  private searchService: SearchService;
 
   private router: Router;
   private route: ActivatedRoute;
@@ -38,6 +41,15 @@ export class SearchComponent implements OnInit {
 
   performSearch() {
     this.router.navigate([], {queryParams: this.query});
-    this.searchService.performSearch(this.query);
+    this.searchService
+        .performSearch(this.query)
+        .then((items) => {
+          this.loaded = true;
+          if (!items) {
+            console.log('search request is empty or failed');
+            return;
+          }
+          this.entities = items;
+        });
   }
 }

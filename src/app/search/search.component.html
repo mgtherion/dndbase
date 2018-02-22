@@ -9,3 +9,15 @@
     (click)="performSearch()">
         Search
 </button>
+
+<br\>
+
+<div *ngIf="!loaded" class="loader"></div>
+
+<h2 *ngIf="loaded">Найдено:</h2>
+<ul class="list-group">
+    <li class="list-group-item"
+        *ngFor="let entity of entities">
+        {{ entity.name }}
+    </li>
+</ul>
