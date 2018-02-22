@@ -28,12 +28,15 @@ export class SearchComponent implements OnInit {
         this.query.query = params.query;
       }
 
-      this.searchService.performSearch(this.query);
+      //this.searchService.performSearch(this.query);
+      this.performSearch(false);
     });
   }
 
-  performSearch() {
-    this.router.navigate([], {queryParams: this.query});
+  performSearch(renavigate = true) {
+    if (renavigate) {
+      this.router.navigate([], {queryParams: this.query});
+    }
     this.searchService.performSearch(this.query);
   }
 }
