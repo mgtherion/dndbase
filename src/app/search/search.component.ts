@@ -10,7 +10,7 @@ import { SearchService } from './search.service';
 })
 export class SearchComponent implements OnInit {
 
-  private entities: any[];
+  private entities: any[] = [];
   private loaded: boolean = false;
 
   private initialSearch: boolean = true;
@@ -40,6 +40,8 @@ export class SearchComponent implements OnInit {
   }
 
   performSearch() {
+    this.entities = [];
+    this.loaded = false;
     this.router.navigate([], {queryParams: this.query});
     this.searchService
         .performSearch(this.query)
