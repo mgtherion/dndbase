@@ -10,6 +10,8 @@ import { SearchService } from './search.service';
 })
 export class SearchComponent implements OnInit {
 
+  initialSearch = true;
+
   query: any = {};
   searchService: SearchService;
 
@@ -27,16 +29,15 @@ export class SearchComponent implements OnInit {
       if (params.query) {
         this.query.query = params.query;
       }
-
-      //this.searchService.performSearch(this.query);
-      this.performSearch(false);
+      if (this.initialSearch) {
+        this.performSearch();
+        this.initialSearch = false;
+      }
     });
   }
 
-  performSearch(renavigate = true) {
-    if (renavigate) {
-      this.router.navigate([], {queryParams: this.query});
-    }
+  performSearch() {
+    this.router.navigate([], {queryParams: this.query});
     this.searchService.performSearch(this.query);
   }
 }
