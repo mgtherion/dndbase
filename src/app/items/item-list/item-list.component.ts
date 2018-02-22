@@ -10,7 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ItemListComponent extends BaseListComponent {
   entityDefaults = {
-    desctiption: 'default item desctiption'
+    desctiption: 'default item desctiption',
+    price: 1
   };
   entityEmpty = {
     name: '',

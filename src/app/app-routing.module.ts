@@ -19,8 +19,8 @@ const routes: Routes = [
     { path: 'items', component: ItemListComponent },
     { path: 'items/:id', component: ItemListComponent },
     { path: 'search', component: SearchComponent },
-    { path: 'enchantments', component: ItemListComponent },
-    { path: 'enchantments/:id', component: ItemListComponent }
+    { path: 'enchantments', component: EnchantmentsListComponent },
+    { path: 'enchantments/:id', component: EnchantmentsListComponent }
 ];
 
 @NgModule({

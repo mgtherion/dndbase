@@ -3,4 +3,3 @@ export class Entity {
   name: string;
   description: string;
 }
-
