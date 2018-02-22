@@ -10,12 +10,12 @@ import { SearchService } from './search.service';
 })
 export class SearchComponent implements OnInit {
 
-  private entities: any[] = [];
-  private loaded: boolean = false;
+  entities: any[] = [];
+  loaded: boolean = false;
 
   private initialSearch: boolean = true;
 
-  private query: any = {};
+  query: any = {};
   private searchService: SearchService;
 
   private router: Router;
