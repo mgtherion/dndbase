@@ -406,20 +406,38 @@ app.delete('/api/enchantments/:id', function(req, res) {
     });
 });
 
-
 app.get('/api/search', function(req, res) {
-    console.log(123, async);
     let query = req.query.query;
 
     db.collection(RACES_COLLECTION).ensureIndex({name: 'text', description: 'text'});
+    db.collection(CLASSES_COLLECTION).ensureIndex({name: 'text', description: 'text'});
+    db.collection(SKILLS_COLLECTION).ensureIndex({name: 'text', description: 'text'});
+    db.collection(ITEMS_COLLECTION).ensureIndex({name: 'text', description: 'text'});
 
-    db.collection(RACES_COLLECTION)
-        .find({$text: {$search: query}})
-        .toArray(function(err, docs) {
-            if (err) {
-                handleError(res, err.message, err.message);
-            } else {
-                res.status(200).json(docs);
-            }
-        });
+    async.parallel([
+        function(cb) {
+            db.collection(RACES_COLLECTION)
+              .find({$text: {$search: query}}, function(items) {
+                console.log('@@@@@@@@@@', items);
+                return cb(items);
+            });
+        },
+        function(cb) {
+            db.collection(CLASSES_COLLECTION).find({$text: {$search: query}}, cb);
+        },
+        function(cb) {
+            db.collection(SKILLS_COLLECTION).find({$text: {$search: query}}, cb);
+        },
+        function(cb) {
+            db.collection(ITEMS_COLLECTION).find({$text: {$search: query}}, cb);
+        }
+    ],
+    function(err, results) {
+        if (err) {
+            handleError(res, err.message, err.message);
+        } else {
+            console.log('!!!!!!!!', results);
+            res.status(200).json({results: results});
+        }
+    })
 });
