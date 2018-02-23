@@ -414,22 +414,30 @@ app.get('/api/search', function(req, res) {
     db.collection(SKILLS_COLLECTION).ensureIndex({name: 'text', description: 'text'});
     db.collection(ITEMS_COLLECTION).ensureIndex({name: 'text', description: 'text'});
 
+    function singleQuery(collectionName, cb) {
+        db.collection(collectionName)
+          .find({$text: {$search: query}})
+          .toArray(function(err, docs) {
+            if (err) {
+                handleError(res, err.message, err.message);
+            } else {
+                cb(null, docs);
+            }
+          });
+    }
+
     async.parallel([
         function(cb) {
-            db.collection(RACES_COLLECTION)
-              .find({$text: {$search: query}}, function(items) {
-                console.log('@@@@@@@@@@', items);
-                return cb(items);
-            });
+            singleQuery(RACES_COLLECTION, cb);
         },
         function(cb) {
-            db.collection(CLASSES_COLLECTION).find({$text: {$search: query}}, cb);
+            singleQuery(CLASSES_COLLECTION, cb);
         },
         function(cb) {
-            db.collection(SKILLS_COLLECTION).find({$text: {$search: query}}, cb);
+            singleQuery(SKILLS_COLLECTION, cb);
         },
         function(cb) {
-            db.collection(ITEMS_COLLECTION).find({$text: {$search: query}}, cb);
+            singleQuery(ITEMS_COLLECTION, cb);
         }
     ],
     function(err, results) {
