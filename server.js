@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('mongodb');
+const async = require('async');
 const ObjectID = mongodb.ObjectID;
 
 const RACES_COLLECTION = 'races';
@@ -407,6 +408,7 @@ app.delete('/api/enchantments/:id', function(req, res) {
 
 
 app.get('/api/search', function(req, res) {
+    console.log(123, async);
     let query = req.query.query;
 
     db.collection(RACES_COLLECTION).ensureIndex({name: 'text', description: 'text'});
