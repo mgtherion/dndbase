@@ -452,7 +452,7 @@ app.get('/api/search', function(req, res) {
                 classes: results[1],
                 skills: results[2],
                 items: results[3],
-                enchantments: result[4]
+                enchantments: results[4]
             });
         }
     })
