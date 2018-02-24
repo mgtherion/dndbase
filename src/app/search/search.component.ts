@@ -51,6 +51,7 @@ export class SearchComponent implements OnInit {
     this.searchService
         .performSearch(this.query)
         .then((results) => {
+          console.log('RESULTS', results);
           this.loaded = true;
 
           for (var i in _.keys(results)) {
