@@ -1,6 +1,7 @@
 import { Component, OnInit, Injector } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SearchService } from './search.service';
+import _ from 'lodash';
 
 @Component({
   selector: 'search',
@@ -29,9 +30,11 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
+
       if (params.query) {
         this.query.query = params.query;
       }
+
       if (this.initialSearch) {
         this.performSearch();
         this.initialSearch = false;
@@ -42,16 +45,17 @@ export class SearchComponent implements OnInit {
   performSearch() {
     this.entities = [];
     this.loaded = false;
+
     this.router.navigate([], {queryParams: this.query});
+
     this.searchService
         .performSearch(this.query)
-        .then((items) => {
+        .then((results) => {
           this.loaded = true;
-          if (!items) {
-            console.log('search request is empty or failed');
-            return;
+
+          for (var i in _.keys(results)) {
+            this.entities += results[i];
           }
-          this.entities = items;
         });
   }
 }
