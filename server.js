@@ -8,6 +8,7 @@ const RACES_COLLECTION = 'races';
 const CLASSES_COLLECTION = 'classes';
 const SKILLS_COLLECTION = 'skills';
 const ITEMS_COLLECTION = 'items';
+const ENCHANTMENTS_COLLECTION = 'enchantments';
 
 const app = express();
 app.use(bodyParser.json());
@@ -340,7 +341,7 @@ app.delete('/api/items/:id', function(req, res) {
  */
 
 app.get('/api/enchantments', function(req, res) {
-    db.collection(ITEMS_COLLECTION).find({}).toArray(function(err, docs) {
+    db.collection(ENCHANTMENTS_COLLECTION).find({}).toArray(function(err, docs) {
         if (err) {
             handleError(res, err.message, 'Failed to get enchantments');
         } else {
@@ -357,7 +358,7 @@ app.post('/api/enchantments', function(req, res) {
         handleError(res, 'Invalid enchantment input', 'Must provide a name', 400);
     }
 
-    db.collection(ITEMS_COLLECTION).insertOne(newItem, function(err, doc) {
+    db.collection(ENCHANTMENTS_COLLECTION).insertOne(newItem, function(err, doc) {
         if (err) {
             handleError(res, err.message, 'Failed to create new enchantment');
         } else {
@@ -373,7 +374,7 @@ app.post('/api/enchantments', function(req, res) {
  */
 
 app.get('/api/enchantments/:id', function(req, res) {
-    db.collection(ITEMS_COLLECTION).findOne({ _id: new ObjectID(req.params.id)}, function(err, doc) {
+    db.collection(ENCHANTMENTS_COLLECTION).findOne({ _id: new ObjectID(req.params.id)}, function(err, doc) {
         if (err) {
             handleError(res, err.message, 'Failed to get enchantment');
         } else {
@@ -386,7 +387,7 @@ app.put('/api/enchantments/:id', function(req, res) {
     var updateDoc = req.body;
     delete updateDoc._id;
 
-    db.collection(ITEMS_COLLECTION).updateOne({ _id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
+    db.collection(ENCHANTMENTS_COLLECTION).updateOne({ _id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
         if (err) {
             handleError(res, err.message, 'Failed to update enchantment');
         } else {
@@ -397,7 +398,7 @@ app.put('/api/enchantments/:id', function(req, res) {
 });
 
 app.delete('/api/enchantments/:id', function(req, res) {
-    db.collection(ITEMS_COLLECTION).deleteOne({ _id: new ObjectID(req.params.id)}, function(err, doc) {
+    db.collection(ENCHANTMENTS_COLLECTION).deleteOne({ _id: new ObjectID(req.params.id)}, function(err, doc) {
         if (err) {
             handleError(res, err.message, 'Failed to delete enchantment');
         } else {
@@ -405,6 +406,8 @@ app.delete('/api/enchantments/:id', function(req, res) {
         }
     });
 });
+
+
 
 app.get('/api/search', function(req, res) {
     let query = req.query.query;
