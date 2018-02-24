@@ -53,10 +53,12 @@ export class SearchComponent implements OnInit {
         .then((results) => {
           console.log('RESULTS', results);
           this.loaded = true;
+          var temp = [];
 
           for (var i in _.keys(results)) {
-            this.entities = _.concat(this.entities, results[i]);
+            temp = _.concat(temp, results[i]);
           }
+          console.log('temp', temp);
         });
   }
 }
