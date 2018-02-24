@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SearchService } from './search.service';
 import _ from 'lodash';
 
+
+
 @Component({
   selector: 'search',
   templateUrl: './search.component.html',
@@ -10,6 +12,14 @@ import _ from 'lodash';
   providers: [ SearchService ]
 })
 export class SearchComponent implements OnInit {
+
+  LABELS = {
+    races: 'badge-default',
+    classes: 'badge-primary',
+    skills: 'badge-success',
+    items: 'badge-info',
+    enchantments: 'badge-warning'
+  };
 
   entities: any[] = [];
   loaded: boolean = false;
@@ -53,10 +63,13 @@ export class SearchComponent implements OnInit {
         .then((results) => {
           console.log('RESULTS', results);
           this.loaded = true;
-          var temp = [];
+          var temp = [], labeledItems;
 
-          _.forOwn(results, (v, k) => {
-            temp = _.concat(temp, v);
+          _.forOwn(results, (items, key) => {
+            labeledItems = _.map(items, (item) => {
+              return _.defaults(item, {label: key});
+            });
+            temp = _.concat(temp, labeledItems);
           });
 
           this.entities = temp;

@@ -18,6 +18,7 @@
 <ul class="list-group">
     <li class="list-group-item"
         *ngFor="let entity of entities">
+        <span class="badge {{ LABELS[entity.label] }}"> {{entity.label}} </span>
         {{ entity.name }}
     </li>
 </ul>
