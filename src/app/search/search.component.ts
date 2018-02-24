@@ -55,7 +55,7 @@ export class SearchComponent implements OnInit {
           this.loaded = true;
 
           for (var i in _.keys(results)) {
-            this.entities += results[i];
+            this.entities = _.concat(this.entities, results[i]);
           }
         });
   }
