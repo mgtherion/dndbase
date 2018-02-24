@@ -428,9 +428,17 @@ app.get('/api/search', function(req, res) {
 
     async.parallel([
         function(cb) {
-            singleQuery(RACES_COLLECTION, cb);
+            db.collection(RACES_COLLECTION)
+              .find({$text: {$search: query}})
+              .toArray(function(err, docs) {
+                if (err) {
+                    handleError(res, err.message, err.message);
+                } else {
+                    cb(null, docs);
+                }
+              });
         },
-        function(cb) {
+        /*function(cb) {
             singleQuery(CLASSES_COLLECTION, cb);
         },
         function(cb) {
@@ -438,7 +446,7 @@ app.get('/api/search', function(req, res) {
         },
         function(cb) {
             singleQuery(ITEMS_COLLECTION, cb);
-        }
+        }*/
     ],
     function(err, results) {
         if (err) {
