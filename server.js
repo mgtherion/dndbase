@@ -438,14 +438,22 @@ app.get('/api/search', function(req, res) {
         },
         function(cb) {
             singleQuery(ITEMS_COLLECTION, cb);
+        },
+        function(cb) {
+            singleQuery(ENCHANTMENTS_COLLECTION, cb);
         }
     ],
     function(err, results) {
         if (err) {
             handleError(res, err.message, err.message);
         } else {
-            console.log('!!!!!!!!', results);
-            res.status(200).json({results: results});
+            res.status(200).json({
+                races: results[0],
+                classes: results[1],
+                skills: results[2],
+                items: results[3],
+                enchantments: result[4]
+            });
         }
     })
 });
