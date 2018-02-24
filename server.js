@@ -409,7 +409,6 @@ app.delete('/api/enchantments/:id', function(req, res) {
 app.get('/api/search', function(req, res) {
     let query = req.query.query;
 
-    db.collection(RACES_COLLECTION).ensureIndex({name: 'text', description: 'text'});
     db.collection(CLASSES_COLLECTION).ensureIndex({name: 'text', description: 'text'});
     db.collection(SKILLS_COLLECTION).ensureIndex({name: 'text', description: 'text'});
     db.collection(ITEMS_COLLECTION).ensureIndex({name: 'text', description: 'text'});
@@ -428,6 +427,8 @@ app.get('/api/search', function(req, res) {
 
     async.parallel([
         function(cb) {
+            db.collection(RACES_COLLECTION).ensureIndex({name: 'text', description: 'text'});
+
             db.collection(RACES_COLLECTION)
               .find({$text: {$search: query}})
               .toArray(function(err, docs) {
