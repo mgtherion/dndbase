@@ -409,11 +409,9 @@ app.delete('/api/enchantments/:id', function(req, res) {
 app.get('/api/search', function(req, res) {
     let query = req.query.query;
 
-    db.collection(CLASSES_COLLECTION).ensureIndex({name: 'text', description: 'text'});
-    db.collection(SKILLS_COLLECTION).ensureIndex({name: 'text', description: 'text'});
-    db.collection(ITEMS_COLLECTION).ensureIndex({name: 'text', description: 'text'});
-
     function singleQuery(collectionName, cb) {
+        db.collection(collectionName).ensureIndex({name: 'text', description: 'text'});
+
         db.collection(collectionName)
           .find({$text: {$search: query}})
           .toArray(function(err, docs) {
@@ -427,19 +425,9 @@ app.get('/api/search', function(req, res) {
 
     async.parallel([
         function(cb) {
-            db.collection(RACES_COLLECTION).ensureIndex({name: 'text', description: 'text'});
-
-            db.collection(RACES_COLLECTION)
-              .find({$text: {$search: query}})
-              .toArray(function(err, docs) {
-                if (err) {
-                    handleError(res, err.message, err.message);
-                } else {
-                    cb(null, docs);
-                }
-              });
+            singleQuery(RACES_COLLECTION, cb);
         },
-        /*function(cb) {
+        function(cb) {
             singleQuery(CLASSES_COLLECTION, cb);
         },
         function(cb) {
@@ -447,7 +435,7 @@ app.get('/api/search', function(req, res) {
         },
         function(cb) {
             singleQuery(ITEMS_COLLECTION, cb);
-        }*/
+        }
     ],
     function(err, results) {
         if (err) {
