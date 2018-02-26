@@ -1,0 +1,28 @@
+.list-group-item > .badge {
+  float: none !important;
+}
+
+.badge-default {
+  color: #fff;
+  background-color: #007bff;
+}
+
+.badge-primary {
+  color: #fff;
+  background-color: #6c757d;
+}
+
+.badge-success {
+  color: #fff;
+  background-color: #28a745;
+}
+
+.badge-info {
+  color: #fff;
+  background-color: #dc3545;
+}
+
+.badge-warning {
+  color: #212529;
+  background-color: #ffc107;
+}
