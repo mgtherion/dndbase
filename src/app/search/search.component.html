@@ -19,7 +19,7 @@
     <li class="list-group-item"
         *ngFor="let entity of entities">
         <span [ngClass]="'badge ' + LABELS[entity.label]"> {{entity.label}} </span>
-        {{ entity.name }}
+        <h5>{{ entity.name }}</h5>
         <a class="redirect" [routerLink]="['/', entity.label]" [queryParams]="{id: entity._id}">Перейти</a>
     </li>
 </ul>
