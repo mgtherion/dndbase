@@ -1,5 +1,10 @@
 .list-group-item > .badge {
   float: none !important;
+  margin-right: 10px;
+}
+
+.list-group-item > .redirect {
+  margin-left: 10px;
 }
 
 .badge-default {
