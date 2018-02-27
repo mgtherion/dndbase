@@ -20,6 +20,6 @@
         *ngFor="let entity of entities">
         <span [ngClass]="'badge ' + LABELS[entity.label]"> {{entity.label}} </span>
         {{ entity.name }}
-        <a [routerLink]="['/', entity.label, entity.id]">Перейти</a>
+        <a [routerLink]="['/', entity.label, entity._id]">Перейти</a>
     </li>
 </ul>
