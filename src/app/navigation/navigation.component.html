@@ -17,8 +17,22 @@
     </div>
     <div>
       <form class="navbar-form navbar-right">
-        <button *ngIf="!globals.editMode.value" (click)="changeMode(true)" class="btn btn-info">Просмотр</button>
-        <button *ngIf="globals.editMode.value" (click)="changeMode(false)" class="btn btn-danger">Редактирование</button>
+        <button
+          *ngIf="!globals.editMode.value"
+          (click)="changeMode(true)"
+          class="btn btn-info">
+            Просмотр
+        </button>
+        <button
+          *ngIf="globals.editMode.value"
+          (click)="changeMode(false)"
+          class="btn btn-danger">
+            Редактирование
+        </button>
+        <button
+          (click)="openModal('custom-modal-1')">
+            Open Modal
+        </button>
         <div class="form-group">
           <input
             type="text"
@@ -37,3 +51,15 @@
     </div>
   </div>
 </nav>
+
+<modal id="custom-modal-1">
+    <div class="dndmodal">
+        <div class="modal-body">
+            <h1>A Custom Modal!</h1>
+            <p>
+                Home page text: <input type="text" [(ngModel)]="bodyText" />
+            </p>
+        </div>
+    </div>
+  <div class="modal-background"></div>
+</modal>
