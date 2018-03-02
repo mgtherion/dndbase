@@ -14,6 +14,8 @@ export class NavigationComponent implements OnInit {
   @Input()
   query: string;
 
+  bodyText: string = '';
+
   globals;
   private router: Router;
   private route: ActivatedRoute;
