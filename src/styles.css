@@ -44,9 +44,7 @@ body, input[text], button {
   font-size: 18px;
 }
 
-
-
-modal .dndmodal {
+modal .auth-modal {
         /* modal container fixed across whole screen */
         position: fixed;
         top: 0;
@@ -59,7 +57,7 @@ modal .dndmodal {
         /* enables scrolling for tall modals */
         overflow: auto;
 }
-modal .dndmodal .modal-body {
+modal .auth-modal .modal-body {
             padding: 20px;
             background: #fff;
             /* margin exposes part of the modal background */
