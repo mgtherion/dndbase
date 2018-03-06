@@ -14,9 +14,6 @@ export class NavigationComponent implements OnInit {
   @Input()
   query: string;
 
-  login: string = '';
-  password: string = '';
-
   globals;
   private router: Router;
   private route: ActivatedRoute;

@@ -4,7 +4,7 @@ import { ModalService } from './modal.service';
 @Component({
   moduleId: module.id.toString(),
   selector: 'modal',
-  template: '<ng-content></ng-content>'
+  templateUrl: './modal.component.html',
 })
 export class ModalComponent implements OnInit {
 
