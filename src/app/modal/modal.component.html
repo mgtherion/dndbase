@@ -1,12 +1,29 @@
 <div class="auth-modal">
     <div class="modal-body">
-        <h1>Auth Page</h1>
-        <p>
-            Login: <input type="text" [(ngModel)]="login" />
-        </p>
-        <p>
-            Password: <input type="password" [(ngModel)]="password" />
-        </p>
+
+        <form>
+            <div class="form-group">
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Login"
+                    name="login"
+                    [(ngModel)]="login">
+            </div>
+
+            <div class="form-group">
+                <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Password"
+                    name="password"
+                    [(ngModel)]="password">
+            </div>
+
+            <button
+            class="btn btn-primary"
+            (click)="authorise()">Я молодец!</button>
+        </form>
 
     </div>
 </div>

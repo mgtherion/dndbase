@@ -11,6 +11,9 @@ export class ModalComponent implements OnInit {
   @Input()
   id: string;
 
+  login: string = '';
+  password: string = '';
+
   private element: JQuery;
   private modalService: ModalService;
   private el: ElementRef;
@@ -54,5 +57,9 @@ export class ModalComponent implements OnInit {
   close(): void {
     this.element.hide();
     $('body').removeClass('modal-open');
+  }
+
+  authorise(): void {
+    console.log(this.login, this.password);
   }
 }
