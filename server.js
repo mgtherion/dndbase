@@ -12,7 +12,7 @@ const ENCHANTMENTS_COLLECTION = 'enchantments';
 
 const app = express();
 app.use(bodyParser.json());
-app.use(express.static('/dist'));
+app.use(express.static(__dirname + '/dist'));
 
 var db;
 
@@ -42,6 +42,7 @@ function handleError(res, reason, message, code) {
  */
 
 app.get('/api/races', function(req, res) {
+    console.log('TEST$$$$$$$$$$$', __dirname);
     db.collection(RACES_COLLECTION).find({}).toArray(function(err, docs) {
         if (err) {
             handleError(res, err.message, 'Failed to get races');
