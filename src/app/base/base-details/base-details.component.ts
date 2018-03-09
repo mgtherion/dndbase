@@ -28,7 +28,7 @@ export class BaseDetailsComponent implements OnInit {
   private sub: Subscription;
   ngOnInit() {
     this.sub = this.globals.editMode.subscribe(function(mode) {
-      console.log(mode);
+      //console.log(mode);
     });
   }
 
