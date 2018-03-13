@@ -29,6 +29,8 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function(err, database) {
         var port = server.address().port;
         console.log('App now running on port ', port);
     });
+
+    require('./races.js')(app, db, RACES_COLLECTION);
 });
 
 function handleError(res, reason, message, code) {
@@ -37,7 +39,7 @@ function handleError(res, reason, message, code) {
 }
 
 
-require('./races.js')(app, db, RACES_COLLECTION);
+
 
 
 /* '/api/classes'
