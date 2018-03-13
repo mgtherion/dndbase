@@ -1,5 +1,5 @@
 
-module.exports = function(app, collection) {
+module.exports = function(app, db, collection) {
 
   /* '/api/races'
    *  GET: get all races

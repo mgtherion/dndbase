@@ -37,7 +37,7 @@ function handleError(res, reason, message, code) {
 }
 
 
-require('./races.js')(app, RACES_COLLECTION);
+require('./races.js')(app, db, RACES_COLLECTION);
 
 
 /* '/api/classes'
