@@ -4,6 +4,7 @@ const mongodb = require('mongodb');
 const async = require('async');
 const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
+const redisConfig = require('./redis-config');
 const ObjectID = mongodb.ObjectID;
 
 const RACES_COLLECTION = 'races';
@@ -15,6 +16,18 @@ const ENCHANTMENTS_COLLECTION = 'enchantments';
 const app = express();
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../dist'));
+
+app.use(session({
+    store: new RedisStore({
+        url: redisConfig.redisStore.url
+    }),
+    secret: redisConfig.redisStore.secret,
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 var db;
 
