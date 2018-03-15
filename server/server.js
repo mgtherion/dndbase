@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('mongodb');
 const async = require('async');
+const session = require('express-session');
+const RedisStore = require('connect-redis')(session);
 const ObjectID = mongodb.ObjectID;
 
 const RACES_COLLECTION = 'races';
