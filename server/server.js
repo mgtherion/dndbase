@@ -5,6 +5,7 @@ const async = require('async');
 const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 const redisConfig = require('./redis-config');
+const passport = require('passport');
 const ObjectID = mongodb.ObjectID;
 
 const RACES_COLLECTION = 'races';
