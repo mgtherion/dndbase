@@ -27,6 +27,7 @@ import { SearchComponent } from './search/search.component';
 import { EnchantmentsListComponent } from './enchantments/enchantments-list/enchantments-list.component';
 import { EnchantmentsDetailsComponent } from './enchantments/enchantments-details/enchantments-details.component';
 import { ModalComponent } from './modal/modal.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { ModalComponent } from './modal/modal.component';
     SearchComponent,
     EnchantmentsListComponent,
     EnchantmentsDetailsComponent,
-    ModalComponent
+    ModalComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,

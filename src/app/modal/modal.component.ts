@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, OnInit, Injector } from '@angular/core';
 import { ModalService } from './modal.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   moduleId: module.id.toString(),
@@ -11,15 +12,17 @@ export class ModalComponent implements OnInit {
   @Input()
   id: string;
 
-  login: string = '';
+  username: string = '';
   password: string = '';
 
   private element: JQuery;
   private modalService: ModalService;
   private el: ElementRef;
+  private authService: AuthService;
 
   constructor(injector: Injector) {
     this.modalService = injector.get(ModalService);
+    this.authService = injector.get(AuthService);
     this.el = injector.get(ElementRef);
     this.element = $(this.el.nativeElement);
   }
@@ -59,7 +62,15 @@ export class ModalComponent implements OnInit {
     $('body').removeClass('modal-open');
   }
 
-  authorise(): void {
-    console.log(this.login, this.password);
+  login(): void {
+    this.authService.login(this.username, this.password)
+      .subscribe(result => {
+        if (result === true) {
+          console.log('SUCCESS');
+        } else {
+          console.log('FAIL ', result);
+        }
+      });
   }
 }
+
