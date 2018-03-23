@@ -8,7 +8,7 @@ import { AuthService } from '../auth/auth.service';
   selector: 'navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css'],
-  providers: [ ModalService ]
+  providers: [ ModalService, AuthService ]
 })
 export class NavigationComponent implements OnInit {
 
