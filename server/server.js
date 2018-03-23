@@ -59,7 +59,7 @@ function handleError(res, reason, message, code) {
     res.status(code || 500).json({'error': message});
 }
 
-app.get('/api/login', function(req, res) {
+app.post('/api/login', function(req, res) {
     res.status(200).json({'token': 123456789});
 });
 
