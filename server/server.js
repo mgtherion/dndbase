@@ -4,9 +4,8 @@ const mongodb = require('mongodb');
 const async = require('async');
 const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
-const redisConfig = require('./redis-config');
-const passport = require('passport');
-const ObjectID = mongodb.ObjectID;
+//const redisConfig = require('./redis-config');
+//const ObjectID = mongodb.ObjectID;
 
 const RACES_COLLECTION = 'races';
 const CLASSES_COLLECTION = 'classes';
@@ -18,17 +17,14 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../dist'));
 
-app.use(session({
+/*app.use(session({
     store: new RedisStore({
         url: redisConfig.redisStore.url
     }),
     secret: redisConfig.redisStore.secret,
     resave: false,
     saveUninitialized: false
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
+}));*/
 
 var db;
 
@@ -46,11 +42,11 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function(err, database) {
         console.log('App now running on port ', port);
     });
 
-    require('./races.js')(app, db, RACES_COLLECTION);
-    require('./classes.js')(app, db, CLASSES_COLLECTION);
-    require('./skills.js')(app, db, SKILLS_COLLECTION);
-    require('./items.js')(app, db, ITEMS_COLLECTION);
-    require('./enchants.js')(app, db, ENCHANTMENTS_COLLECTION);
+    require('./races.js')(app, db, RACES_COLLECTION, handleError);
+    require('./classes.js')(app, db, CLASSES_COLLECTION, handleError);
+    require('./skills.js')(app, db, SKILLS_COLLECTION, handleError);
+    require('./items.js')(app, db, ITEMS_COLLECTION, handleError);
+    require('./enchants.js')(app, db, ENCHANTMENTS_COLLECTION, handleError);
 
 });
 
