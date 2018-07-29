@@ -1,0 +1,17 @@
+<p>
+  <ng-content></ng-content>
+  <span [ngClass]="{blackColor: true}">hello, </span>
+  <span bold [ngClass]="{redColor: userNameOverflow}">{{userName}}</span> -
+
+  <span class="redColor" *ngIf="userNameOverflow; else ok"> error </span>
+  <ng-template #ok>
+    <span [class.blackColor]="true">{{count}}</span>!
+  </ng-template>
+</p>
+<button *if="!userNameOverflow" (click)="increase()">+</button>
+<button *if="!userNameOverflow" (click)="decrease()">-</button>
+
+<br><br><br>
+
+<input [ngModel]="description" (ngModelChange)="onDescChange($event)" />
+<p> {{description}} </p>

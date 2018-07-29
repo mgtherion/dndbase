@@ -1,0 +1,22 @@
+<input type="text" [(ngModel)]="name" /> <!-- 2 way binding -->
+<input type="text" [value]="name" /> <!-- 1 way binding -->
+<p> {{name}} {{count}} {{desc}} </p> <!-- only show -->
+<button (click)="child.increase()">+</button> <!-- access to child method -->
+<button (click)="child.decrease()">-</button> <!-- access to child method -->
+<button (click)="increase($event)"> Click </button> <!-- custom event -->
+
+<test-child
+  #child
+  [userName]="name"
+  [count]="count"
+  (onCountChanged)="onCountChanged($event)"
+  [(description)]="desc">
+    <p #childVariable></p>
+    Well,
+</test-child>
+
+<p #someVariable></p>
+<p>{{someVariable.textContent}}</p>
+
+<data-comp></data-comp>
+<data-comp></data-comp>

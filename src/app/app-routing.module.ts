@@ -23,7 +23,8 @@ const routes: Routes = [
     { path: 'search', component: SearchComponent },
     { path: 'enchantments', component: EnchantmentsListComponent },
     { path: 'enchantments/:id', component: EnchantmentsListComponent },
-    { path: 'forbidden', component: ForbiddenComponent }
+    { path: 'forbidden', component: ForbiddenComponent },
+    { path: 'research', loadChildren: './research/research.module#ResearchModule' }
 ];
 
 @NgModule({
